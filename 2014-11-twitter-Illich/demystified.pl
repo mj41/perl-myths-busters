@@ -24,7 +24,8 @@ while ( my $line = <STDIN> ) {
 				(?<start> [^{]* )       # Empty string or sequence of all characters except {.
 				                        # Saved to $+{start}.
 				{                       # Match character {.
-					(?<list> [^{}]+)    # Sequence of all characters except { and }. Saved to ${list}.
+					(?<list> [^{}]+)    # Sequence of all characters except { and }. Saved
+					                    #   to ${list}.
 				}                       # Match character }.
 				(?<end> .*)             # All remaining characters (dot means any character)
 				                        # to end of $word. Saved to $+{end}.
@@ -42,7 +43,7 @@ while ( my $line = <STDIN> ) {
 		# All others not matched by regexp above.
 		$word =~ s{
 			[ {}\. ]  # Any of { or } or dot characters are removed (replaced by empty string).
-					  # Backslash is used to escape dot (dot means one any character in regexp).
+			          # Backslash is used to escape dot (dot means one any character in regexp).
 		}{}gx;
 		print "$word\n";
 	}
