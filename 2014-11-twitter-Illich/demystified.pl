@@ -3,7 +3,8 @@
 use strict;
 use warnings;
 
-while ( my $line = <STDIN> ) {
+# Read lines from each file provided on command line.
+while ( my $line = <> ) {
 	$line =~ s{\n$}{}; # Remove all new lines on the end of string.
 	$line =~ s{\|}{}g; # Remove all occurences of | character.
 
